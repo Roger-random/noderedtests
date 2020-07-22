@@ -1,0 +1,742 @@
+[
+    {
+        "id": "96d8407e.610f7",
+        "type": "tab",
+        "label": "Integration test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f6022c18.85fce",
+        "type": "serial in",
+        "z": "96d8407e.610f7",
+        "name": "Futek USB220",
+        "serial": "f999bb85.1e4368",
+        "x": 80,
+        "y": 100,
+        "wires": [
+            [
+                "df32ebf1.700e48",
+                "6fd93c71.ed7384"
+            ]
+        ]
+    },
+    {
+        "id": "df32ebf1.700e48",
+        "type": "ui_chart",
+        "z": "96d8407e.610f7",
+        "name": "Futek load cell chart",
+        "group": "3a66ae69.d9db02",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "500",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6fd93c71.ed7384",
+        "type": "trigger",
+        "z": "96d8407e.610f7",
+        "name": "Futek connection watchdog",
+        "op1": "Connected",
+        "op2": "Disconnected",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "250",
+        "extend": true,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "2a674f0.44fd1b2"
+            ]
+        ]
+    },
+    {
+        "id": "2a674f0.44fd1b2",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "3a66ae69.d9db02",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Futek connection status",
+        "label": "Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 630,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "bf09909f.f88d3",
+        "type": "serial request",
+        "z": "96d8407e.610f7",
+        "name": "Applied Motion Control ST5-Q-NN",
+        "serial": "7dc604c4.8f712c",
+        "x": 600,
+        "y": 360,
+        "wires": [
+            [
+                "bf596881.4039b8",
+                "f0cf3d18.f1c6b",
+                "f5e04df0.ab9a6",
+                "e99d4472.84f3d8",
+                "3719986e.a52938"
+            ]
+        ]
+    },
+    {
+        "id": "bf596881.4039b8",
+        "type": "debug",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "822a183a.e285f8",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "FP0",
+        "payloadType": "str",
+        "x": 190,
+        "y": 780,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "afaafb74.1176c8",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "FP250000",
+        "payloadType": "str",
+        "x": 200,
+        "y": 860,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "31d0a634.5aae5a",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "FP25000",
+        "payloadType": "str",
+        "x": 200,
+        "y": 820,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "673cebae.548cf4",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AL",
+        "payloadType": "str",
+        "x": 190,
+        "y": 940,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "cdba1278.56351",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "AR",
+        "payloadType": "str",
+        "x": 190,
+        "y": 980,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "1bd71f19.484051",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Request position",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "IP",
+        "payloadType": "str",
+        "x": 170,
+        "y": 580,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "d9e4ed63.dee94",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Initialize Drive",
+        "func": "// MV  = queries version information\n// PR4 = send ACK response after receiving commands\n// IFH = hexadecimal values returned from immediate commands\n// IU  = input voltage\n// IT  = temperature\n// SP0 = set current position as zero\n// AC2 = acceleration rev/sec/sec\n// DE2 = deceleration rev/sec/sec\n// VE2 = move velocity rev/sec\n// ME  = motor enable\nvar initSequence = \"MV PR4 IFH IU IT SP0 AC2 DE2 VE2 ME\"\nvar outputMsgs = [];\nvar commands = initSequence.split(' ');\nfor (var command in commands) {\n    outputMsgs.push({payload:commands[command]});\n}\n\nreturn [ outputMsgs ];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "31f9a064.bbb0b",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Go",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "d9e4ed63.dee94"
+            ]
+        ]
+    },
+    {
+        "id": "446f6b43.47a674",
+        "type": "ui_gauge",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "899ee030.4e6a2",
+        "order": 5,
+        "width": 3,
+        "height": "2",
+        "gtype": "gage",
+        "title": "Power Supply",
+        "label": "Volts",
+        "format": "{{value}}",
+        "min": "40",
+        "max": "56",
+        "colors": [
+            "#ff0000",
+            "#00ff00",
+            "#ff0000"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1080,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f0cf3d18.f1c6b",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Voltage update",
+        "func": "if (msg.request_payload === \"IU\" && \n    msg.status === \"OK\") {\n    var decivolts = parseInt(msg.payload.substring(3,7),16);\n    return {payload:decivolts/10.0}\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 900,
+        "y": 360,
+        "wires": [
+            [
+                "446f6b43.47a674"
+            ]
+        ]
+    },
+    {
+        "id": "f5e04df0.ab9a6",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Temperature update",
+        "func": "if (msg.request_payload === \"IT\" && \n    msg.status === \"OK\") {\n    var decivolts = parseInt(msg.payload.substring(3,7),16);\n    return {payload:decivolts/10.0}\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 920,
+        "y": 400,
+        "wires": [
+            [
+                "a269f080.96948"
+            ]
+        ]
+    },
+    {
+        "id": "a269f080.96948",
+        "type": "ui_gauge",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "899ee030.4e6a2",
+        "order": 4,
+        "width": 3,
+        "height": "2",
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "degrees C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "90",
+        "colors": [
+            "#0000ff",
+            "#00ff00",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1110,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7cc015f8.d6af5c",
+        "type": "ui_switch",
+        "z": "96d8407e.610f7",
+        "name": "Motor enable switch",
+        "label": "Motor Enable",
+        "tooltip": "",
+        "group": "899ee030.4e6a2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "ME",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "MD",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 240,
+        "y": 360,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "a4eb67bf.a17948",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "899ee030.4e6a2",
+        "order": 6,
+        "width": "6",
+        "height": "6",
+        "passthru": false,
+        "label": "STOP",
+        "tooltip": "",
+        "color": "White",
+        "bgcolor": "Red",
+        "icon": "",
+        "payload": "SKD",
+        "payloadType": "str",
+        "topic": "",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "19f0f5cb.ec9d9a",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Request voltage",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "IU",
+        "payloadType": "str",
+        "x": 170,
+        "y": 460,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "f14759d.77352a8",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Request temperature",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "IT",
+        "payloadType": "str",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "b2d9b253.ef171",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "899ee030.4e6a2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Status code",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 1090,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e99d4472.84f3d8",
+        "type": "switch",
+        "z": "96d8407e.610f7",
+        "name": "Status code update",
+        "property": "request_payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "SC",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 910,
+        "y": 480,
+        "wires": [
+            [
+                "b2d9b253.ef171"
+            ]
+        ]
+    },
+    {
+        "id": "c6daa3e9.21a18",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Request status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "SC",
+        "payloadType": "str",
+        "x": 180,
+        "y": 540,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "88e74aae.736ec8",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "899ee030.4e6a2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Position",
+        "label": "Position: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 1060,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "3719986e.a52938",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Position update",
+        "func": "if (msg.request_payload === \"IP\" && \n    msg.status === \"OK\") {\n    var position = parseInt(msg.payload.substring(3,11),16);\n    return {payload:position}\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 900,
+        "y": 440,
+        "wires": [
+            [
+                "88e74aae.736ec8"
+            ]
+        ]
+    },
+    {
+        "id": "f999bb85.1e4368",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\r\\n",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "3a66ae69.d9db02",
+        "type": "ui_group",
+        "z": "",
+        "name": "Futek Load Cell",
+        "tab": "997e5be5.fc44a8",
+        "order": 1,
+        "disp": true,
+        "width": 12,
+        "collapse": true
+    },
+    {
+        "id": "7dc604c4.8f712c",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "100",
+        "bin": "false",
+        "out": "time",
+        "addchar": "\\r",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "899ee030.4e6a2",
+        "type": "ui_group",
+        "z": "",
+        "name": "Motor Controller",
+        "tab": "997e5be5.fc44a8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "997e5be5.fc44a8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Integration Test",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
