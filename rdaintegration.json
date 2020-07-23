@@ -7,6 +7,268 @@
         "info": ""
     },
     {
+        "id": "543cd990.8704a8",
+        "type": "subflow",
+        "name": "Enable based on Boolean",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "3ebb364d.72384a"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 500,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "3ebb364d.72384a",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 500,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "3ebb364d.72384a",
+                        "port": 1
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99",
+        "inputLabels": [
+            "Boolean payload"
+        ],
+        "outputLabels": [
+            "Enabled when input is False",
+            "Enabled when input is True"
+        ]
+    },
+    {
+        "id": "61f0bf90.696a1",
+        "type": "subflow",
+        "name": "Set Position",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "6765bbee.7bf5f4"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 340,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "6765bbee.7bf5f4",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "f999bb85.1e4368",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM4",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\r\\n",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "a273c16d.a6548",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#dd8dc4",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#dd8dc4",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#dd8dc4",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#efc8e2",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#dd8dc4",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "RogTest Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "997e5be5.fc44a8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Integration Test",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3a66ae69.d9db02",
+        "type": "ui_group",
+        "z": "",
+        "name": "Futek Load Cell",
+        "tab": "997e5be5.fc44a8",
+        "order": 1,
+        "disp": true,
+        "width": 12,
+        "collapse": true
+    },
+    {
+        "id": "7dc604c4.8f712c",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "100",
+        "bin": "false",
+        "out": "time",
+        "addchar": "\\r",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "899ee030.4e6a2",
+        "type": "ui_group",
+        "z": "",
+        "name": "Motor Status",
+        "tab": "997e5be5.fc44a8",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "66a4bb10.233fa4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Motor Control",
+        "tab": "997e5be5.fc44a8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
         "id": "f6022c18.85fce",
         "type": "serial in",
         "z": "96d8407e.610f7",
@@ -455,7 +717,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "66a4bb10.233fa4",
-        "order": 1,
+        "order": 7,
         "width": "6",
         "height": "6",
         "passthru": false,
@@ -583,7 +845,7 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Position update",
-        "func": "if (msg.request_payload === \"IP\" && \n    msg.status === \"OK\") {\n    var position = parseInt(msg.payload.substring(3,11),16);\n    return {payload:position}\n}\nreturn null;",
+        "func": "if (msg.request_payload === \"IP\" && \n    msg.status === \"OK\") {\n    var position = parseInt(msg.payload.substring(3,11),16);\n    global.set(\"IP\", position);\n    return {payload:position}\n}\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -610,7 +872,7 @@
         "y": 300,
         "wires": [
             [
-                "3ebb364d.72384a"
+                "834cae55.f981f"
             ],
             [
                 "33e675fe.8729da"
@@ -753,26 +1015,22 @@
     {
         "id": "3ebb364d.72384a",
         "type": "function",
-        "z": "96d8407e.610f7",
-        "name": "Enable Based On Motor Status",
+        "z": "543cd990.8704a8",
+        "name": "Enable Based On Boolean Input",
         "func": "if (msg.payload) {\n    return [ {enabled:false},\n             {enabled:true}];\n} else {\n    return [ {enabled:true},\n             {enabled:false}];\n}",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1250,
-        "y": 200,
+        "x": 290,
+        "y": 80,
         "wires": [
-            [
-                "f5742234.ae4e9"
-            ],
-            [
-                "ceda660d.9e1c88"
-            ]
+            [],
+            []
         ],
         "outputLabels": [
-            "When Motor Disabled",
-            "When Motor Enabled"
+            "Enabled when False",
+            "Enabled when True"
         ]
     },
     {
@@ -832,86 +1090,282 @@
         ]
     },
     {
-        "id": "f999bb85.1e4368",
-        "type": "serial-port",
-        "z": "",
-        "serialport": "COM4",
-        "serialbaud": "9600",
-        "databits": "8",
-        "parity": "none",
-        "stopbits": "1",
-        "waitfor": "",
-        "dtr": "none",
-        "rts": "none",
-        "cts": "none",
-        "dsr": "none",
-        "newline": "\\n",
-        "bin": "false",
-        "out": "char",
-        "addchar": "\\r\\n",
-        "responsetimeout": "1000"
+        "id": "834cae55.f981f",
+        "type": "subflow:543cd990.8704a8",
+        "z": "96d8407e.610f7",
+        "name": "Enable based on Motor Enable",
+        "env": [],
+        "x": 1250,
+        "y": 200,
+        "wires": [
+            [
+                "f5742234.ae4e9"
+            ],
+            [
+                "ceda660d.9e1c88"
+            ]
+        ]
     },
     {
-        "id": "3a66ae69.d9db02",
-        "type": "ui_group",
-        "z": "",
-        "name": "Futek Load Cell",
-        "tab": "997e5be5.fc44a8",
+        "id": "7c6d5f79.c2107",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Convert mm to stepper position",
+        "func": "var targetMM = msg.payload; // in millimeters\n\n// Convert millimeter to stepper position.\n// There are 25000 positions per revolution.\n// Each revolution is 0.083\" (pitch of leadscrew.)\n// 1\" = 25.4mm\n// Positive step is downwards, so invert sign to align with Z axis\n\nvar targetPos = (-targetMM * 25000)/(25.4 * 0.083)\n\nmsg.payload = \"FP\" + Math.round(targetPos).toString();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 590,
+        "y": 1120,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "dc5f2b9.68defd8",
+        "type": "ui_text_input",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "label": "Target Position (mm)",
+        "tooltip": "",
+        "group": "66a4bb10.233fa4",
         "order": 1,
-        "disp": true,
-        "width": 12,
-        "collapse": true
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "x": 300,
+        "y": 1120,
+        "wires": [
+            [
+                "7c6d5f79.c2107"
+            ]
+        ]
     },
     {
-        "id": "7dc604c4.8f712c",
-        "type": "serial-port",
-        "z": "",
-        "serialport": "COM3",
-        "serialbaud": "9600",
-        "databits": "8",
-        "parity": "none",
-        "stopbits": "1",
-        "waitfor": "",
-        "dtr": "none",
-        "rts": "none",
-        "cts": "none",
-        "dsr": "none",
-        "newline": "100",
-        "bin": "false",
-        "out": "time",
-        "addchar": "\\r",
-        "responsetimeout": "1000"
-    },
-    {
-        "id": "899ee030.4e6a2",
-        "type": "ui_group",
-        "z": "",
-        "name": "Motor Status",
-        "tab": "997e5be5.fc44a8",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": true
-    },
-    {
-        "id": "66a4bb10.233fa4",
-        "type": "ui_group",
-        "z": "",
-        "name": "Motor Control",
-        "tab": "997e5be5.fc44a8",
+        "id": "7e77ceb.2dd183",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "66a4bb10.233fa4",
         "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Set Position A",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "PositionA",
+        "payloadType": "str",
+        "topic": "",
+        "x": 280,
+        "y": 1160,
+        "wires": [
+            [
+                "72dc303d.e479"
+            ]
+        ]
     },
     {
-        "id": "997e5be5.fc44a8",
-        "type": "ui_tab",
-        "z": "",
-        "name": "Integration Test",
-        "icon": "dashboard",
-        "order": 1,
-        "disabled": false,
-        "hidden": false
+        "id": "3e4c95e7.1bd93a",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "66a4bb10.233fa4",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Set Position B",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "PositionB",
+        "payloadType": "str",
+        "topic": "",
+        "x": 280,
+        "y": 1200,
+        "wires": [
+            [
+                "98350517.65a618"
+            ]
+        ]
+    },
+    {
+        "id": "6765bbee.7bf5f4",
+        "type": "function",
+        "z": "61f0bf90.696a1",
+        "name": "Set Position",
+        "func": "var position = global.get(\"IP\"); // Most recent position from Immediate Position\nglobal.set(msg.payload, position);\nmsg.payload = position;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da8c8824.f4cfe8",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "66a4bb10.233fa4",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "Position A",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 700,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "337e453a.a416ca",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "66a4bb10.233fa4",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "name": "Position B",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 700,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "72dc303d.e479",
+        "type": "subflow:61f0bf90.696a1",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "env": [],
+        "x": 490,
+        "y": 1160,
+        "wires": [
+            [
+                "da8c8824.f4cfe8"
+            ]
+        ]
+    },
+    {
+        "id": "98350517.65a618",
+        "type": "subflow:61f0bf90.696a1",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "x": 490,
+        "y": 1200,
+        "wires": [
+            [
+                "337e453a.a416ca"
+            ]
+        ]
+    },
+    {
+        "id": "ce9e452f.2f6a28",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Set autocycle state",
+        "func": "flow.set(\"Autocycle\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 470,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "10c715b5.1f0daa",
+        "type": "ui_switch",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "label": "Autocycle",
+        "tooltip": "",
+        "group": "66a4bb10.233fa4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 260,
+        "y": 1260,
+        "wires": [
+            [
+                "ce9e452f.2f6a28"
+            ]
+        ]
+    },
+    {
+        "id": "1bde2352.dffe1d",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Autocycle timer",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 1320,
+        "wires": [
+            [
+                "3e0a3bc9.7ca914"
+            ]
+        ]
+    },
+    {
+        "id": "3e0a3bc9.7ca914",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Autocycle",
+        "func": "if (flow.get(\"Autocycle\")) {\n    var positionNow = global.get(\"IP\");\n    var positionNext = positionNow;\n    var positionA = global.get(\"PositionA\");\n    var positionB = global.get(\"PositionB\");\n    \n    if (positionNow == positionA) {\n        positionNext = positionB;\n    } else {\n        positionNext = positionA;\n    }\n    \n    return {payload:\"FP\"+positionNext.toString()};\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 1320,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
     }
 ]
