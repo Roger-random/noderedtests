@@ -39,9 +39,9 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "12",
+        "removeOlder": "5",
         "removeOlderPoints": "500",
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "60",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -110,15 +110,16 @@
         "z": "96d8407e.610f7",
         "name": "Applied Motion Control ST5-Q-NN",
         "serial": "7dc604c4.8f712c",
-        "x": 600,
-        "y": 360,
+        "x": 680,
+        "y": 660,
         "wires": [
             [
                 "bf596881.4039b8",
                 "f0cf3d18.f1c6b",
                 "f5e04df0.ab9a6",
-                "e99d4472.84f3d8",
-                "3719986e.a52938"
+                "3719986e.a52938",
+                "3de68aa6.134616",
+                "e99d4472.84f3d8"
             ]
         ]
     },
@@ -135,8 +136,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 320,
+        "x": 950,
+        "y": 360,
         "wires": []
     },
     {
@@ -160,8 +161,8 @@
         "topic": "",
         "payload": "FP0",
         "payloadType": "str",
-        "x": 190,
-        "y": 780,
+        "x": 270,
+        "y": 820,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -189,8 +190,8 @@
         "topic": "",
         "payload": "FP250000",
         "payloadType": "str",
-        "x": 200,
-        "y": 860,
+        "x": 280,
+        "y": 900,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -218,8 +219,8 @@
         "topic": "",
         "payload": "FP25000",
         "payloadType": "str",
-        "x": 200,
-        "y": 820,
+        "x": 280,
+        "y": 860,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -247,8 +248,8 @@
         "topic": "",
         "payload": "AL",
         "payloadType": "str",
-        "x": 190,
-        "y": 940,
+        "x": 270,
+        "y": 980,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -276,8 +277,8 @@
         "topic": "",
         "payload": "AR",
         "payloadType": "str",
-        "x": 190,
-        "y": 980,
+        "x": 270,
+        "y": 1020,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -298,15 +299,15 @@
                 "vt": "str"
             }
         ],
-        "repeat": "0.5",
+        "repeat": "1",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "IP",
         "payloadType": "str",
-        "x": 170,
-        "y": 580,
+        "x": 250,
+        "y": 700,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -323,8 +324,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 460,
-        "y": 280,
+        "x": 400,
+        "y": 440,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -352,8 +353,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 290,
-        "y": 280,
+        "x": 230,
+        "y": 440,
         "wires": [
             [
                 "d9e4ed63.dee94"
@@ -366,7 +367,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "899ee030.4e6a2",
-        "order": 5,
+        "order": 8,
         "width": 3,
         "height": "2",
         "gtype": "gage",
@@ -382,8 +383,8 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 1080,
-        "y": 360,
+        "x": 1160,
+        "y": 400,
         "wires": []
     },
     {
@@ -396,8 +397,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 900,
-        "y": 360,
+        "x": 980,
+        "y": 400,
         "wires": [
             [
                 "446f6b43.47a674"
@@ -414,8 +415,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 920,
-        "y": 400,
+        "x": 1000,
+        "y": 440,
         "wires": [
             [
                 "a269f080.96948"
@@ -428,7 +429,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "899ee030.4e6a2",
-        "order": 4,
+        "order": 7,
         "width": 3,
         "height": "2",
         "gtype": "gage",
@@ -444,48 +445,17 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 1110,
-        "y": 400,
+        "x": 1190,
+        "y": 440,
         "wires": []
-    },
-    {
-        "id": "7cc015f8.d6af5c",
-        "type": "ui_switch",
-        "z": "96d8407e.610f7",
-        "name": "Motor enable switch",
-        "label": "Motor Enable",
-        "tooltip": "",
-        "group": "899ee030.4e6a2",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "",
-        "style": "",
-        "onvalue": "ME",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "MD",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "x": 240,
-        "y": 360,
-        "wires": [
-            [
-                "bf09909f.f88d3"
-            ]
-        ]
     },
     {
         "id": "a4eb67bf.a17948",
         "type": "ui_button",
         "z": "96d8407e.610f7",
         "name": "",
-        "group": "899ee030.4e6a2",
-        "order": 6,
+        "group": "66a4bb10.233fa4",
+        "order": 1,
         "width": "6",
         "height": "6",
         "passthru": false,
@@ -497,8 +467,8 @@
         "payload": "SKD",
         "payloadType": "str",
         "topic": "",
-        "x": 190,
-        "y": 320,
+        "x": 270,
+        "y": 520,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -526,8 +496,8 @@
         "topic": "",
         "payload": "IU",
         "payloadType": "str",
-        "x": 170,
-        "y": 460,
+        "x": 250,
+        "y": 580,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -555,52 +525,11 @@
         "topic": "",
         "payload": "IT",
         "payloadType": "str",
-        "x": 160,
-        "y": 500,
+        "x": 240,
+        "y": 620,
         "wires": [
             [
                 "bf09909f.f88d3"
-            ]
-        ]
-    },
-    {
-        "id": "b2d9b253.ef171",
-        "type": "ui_text",
-        "z": "96d8407e.610f7",
-        "group": "899ee030.4e6a2",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "Status code",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "x": 1090,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "e99d4472.84f3d8",
-        "type": "switch",
-        "z": "96d8407e.610f7",
-        "name": "Status code update",
-        "property": "request_payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "SC",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 910,
-        "y": 480,
-        "wires": [
-            [
-                "b2d9b253.ef171"
             ]
         ]
     },
@@ -625,8 +554,8 @@
         "topic": "",
         "payload": "SC",
         "payloadType": "str",
-        "x": 180,
-        "y": 540,
+        "x": 260,
+        "y": 660,
         "wires": [
             [
                 "bf09909f.f88d3"
@@ -638,15 +567,15 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "899ee030.4e6a2",
-        "order": 2,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "Position",
         "label": "Position: ",
         "format": "{{msg.payload}}",
         "layout": "row-left",
-        "x": 1060,
-        "y": 440,
+        "x": 1140,
+        "y": 480,
         "wires": []
     },
     {
@@ -659,11 +588,246 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 900,
-        "y": 440,
+        "x": 980,
+        "y": 480,
         "wires": [
             [
                 "88e74aae.736ec8"
+            ]
+        ]
+    },
+    {
+        "id": "3de68aa6.134616",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Status code",
+        "func": "if (msg.request_payload === \"SC\" && \n    msg.status === \"OK\") {\n    var status = parseInt(msg.payload.substring(3,11),16);\n    \n    var enabled = Boolean(0 !== (status & 0x0001));\n    // 0x0002 = Sampling (for Quick Tuner)\n    // 0x0004 = fault, incorporated into 'alarm' 0x0200 check\n    // 0x0008 = not valid on ST series\n    var moving = Boolean(0 !== (status & 0x0010));\n    // 0x0020 = jogging operation\n    // 0x0040 = stopping\n    // 0x0080 = waiting (WI)\n    // 0x0100 = saving\n    var alarm = Boolean(0 !== (status & 0x0204));\n    // 0x0400 = Homing\n    // 0x0800 = Waiting (WD or WT)\n    // 0x1000 = Timing wizard\n    // 0x2000 = Checking encoder\n    // 0x4000 = Q program is running\n    // 0x8000 = Initializing (power up)\n    \n    return [ {payload:enabled},\n             {payload:moving},\n             {payload:alarm} ];\n}\nreturn null;",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 970,
+        "y": 300,
+        "wires": [
+            [
+                "3ebb364d.72384a"
+            ],
+            [
+                "33e675fe.8729da"
+            ],
+            [
+                "a56adcb8.4c6e5"
+            ]
+        ],
+        "outputLabels": [
+            "Enabled",
+            "Moving",
+            "Alarm"
+        ]
+    },
+    {
+        "id": "33e675fe.8729da",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "899ee030.4e6a2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Moving",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1180,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a56adcb8.4c6e5",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "899ee030.4e6a2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Alarm",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1170,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b2d9b253.ef171",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "899ee030.4e6a2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Status code",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 1170,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e99d4472.84f3d8",
+        "type": "switch",
+        "z": "96d8407e.610f7",
+        "name": "Status code update",
+        "property": "request_payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "SC",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 990,
+        "y": 520,
+        "wires": [
+            [
+                "b2d9b253.ef171"
+            ]
+        ]
+    },
+    {
+        "id": "71289403.d98b6c",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "899ee030.4e6a2",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Motor Enable",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "ME",
+        "payloadType": "str",
+        "topic": "",
+        "x": 430,
+        "y": 360,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "531c4637.4205f8",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "899ee030.4e6a2",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Motor Disable",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "MD",
+        "payloadType": "str",
+        "topic": "",
+        "x": 440,
+        "y": 400,
+        "wires": [
+            [
+                "bf09909f.f88d3"
+            ]
+        ]
+    },
+    {
+        "id": "3ebb364d.72384a",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Enable Based On Motor Status",
+        "func": "if (msg.payload) {\n    return [ {enabled:false},\n             {enabled:true}];\n} else {\n    return [ {enabled:true},\n             {enabled:false}];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1250,
+        "y": 200,
+        "wires": [
+            [
+                "f5742234.ae4e9"
+            ],
+            [
+                "ceda660d.9e1c88"
+            ]
+        ],
+        "outputLabels": [
+            "When Motor Disabled",
+            "When Motor Enabled"
+        ]
+    },
+    {
+        "id": "f5742234.ae4e9",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "Enable when Motor Disabled",
+        "links": [
+            "87eaaadc.193ba8"
+        ],
+        "x": 1455,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ceda660d.9e1c88",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "Enable when Motor Enabled",
+        "links": [
+            "41e86b6b.1e90a4"
+        ],
+        "x": 1455,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "87eaaadc.193ba8",
+        "type": "link in",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "f5742234.ae4e9"
+        ],
+        "x": 315,
+        "y": 360,
+        "wires": [
+            [
+                "71289403.d98b6c"
+            ]
+        ]
+    },
+    {
+        "id": "41e86b6b.1e90a4",
+        "type": "link in",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "ceda660d.9e1c88"
+        ],
+        "x": 315,
+        "y": 400,
+        "wires": [
+            [
+                "531c4637.4205f8"
             ]
         ]
     },
@@ -722,12 +886,23 @@
         "id": "899ee030.4e6a2",
         "type": "ui_group",
         "z": "",
-        "name": "Motor Controller",
+        "name": "Motor Status",
         "tab": "997e5be5.fc44a8",
         "order": 2,
         "disp": true,
         "width": "6",
         "collapse": true
+    },
+    {
+        "id": "66a4bb10.233fa4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Motor Control",
+        "tab": "997e5be5.fc44a8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
     },
     {
         "id": "997e5be5.fc44a8",
