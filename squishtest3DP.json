@@ -1,0 +1,431 @@
+[
+    {
+        "id": "96d8407e.610f7",
+        "type": "tab",
+        "label": "3D Printer Test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a273c16d.a6548",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#dd8dc4",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#dd8dc4",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#dd8dc4",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#efc8e2",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#dd8dc4",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "3D Printer Test",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "2c4bee50.ad8412",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM5",
+        "serialbaud": "250000",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "\\n",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "cb9c6f66.54e12",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Coordinate Control",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a516f7a8.528348",
+        "type": "ui_group",
+        "z": "",
+        "name": "Machine State",
+        "tab": "cb9c6f66.54e12",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "65ab7d19.0d5844",
+        "type": "serial request",
+        "z": "96d8407e.610f7",
+        "name": "3D Printer",
+        "serial": "2c4bee50.ad8412",
+        "x": 240,
+        "y": 120,
+        "wires": [
+            [
+                "aa50211d.629ba",
+                "1f300358.acab5d",
+                "cb63aceb.5a40e"
+            ]
+        ]
+    },
+    {
+        "id": "aa50211d.629ba",
+        "type": "debug",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "25f1430b.aba9dc",
+        "type": "link in",
+        "z": "96d8407e.610f7",
+        "name": "To Printer",
+        "links": [
+            "92ef9e46.93b4a",
+            "87bb3967.65e638",
+            "41d4c506.c4183c",
+            "36e6968.ce96a6a",
+            "7457c34e.b0c51c"
+        ],
+        "x": 95,
+        "y": 120,
+        "wires": [
+            [
+                "65ab7d19.0d5844",
+                "31a6b0.4646595"
+            ]
+        ]
+    },
+    {
+        "id": "ef028f47.9355c",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Get position",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "M114",
+        "payloadType": "str",
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "41d4c506.c4183c"
+            ]
+        ]
+    },
+    {
+        "id": "41d4c506.c4183c",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "25f1430b.aba9dc"
+        ],
+        "x": 595,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "12bed135.b4e95f",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Detect start",
+        "func": "if (msg.payload !== undefined &&\n    msg.payload.indexOf(\"start\") != -1) {\n    return {payload:\"start\"};\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 250,
+        "y": 280,
+        "wires": [
+            [
+                "c4f6e240.d1606"
+            ]
+        ]
+    },
+    {
+        "id": "7b06aca7.c5b924",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Stow position",
+        "func": "return [[{payload:\"G0 X10 Y10 F12000\"},\n         {payload:\"G0 Z10 F3000\"}]];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 430,
+        "y": 440,
+        "wires": [
+            [
+                "36e6968.ce96a6a"
+            ]
+        ]
+    },
+    {
+        "id": "f857dc2a.bb66e",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "Startup",
+        "group": "a516f7a8.528348",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Startup Sequence",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "start",
+        "payloadType": "str",
+        "topic": "",
+        "x": 240,
+        "y": 320,
+        "wires": [
+            [
+                "c4f6e240.d1606"
+            ]
+        ]
+    },
+    {
+        "id": "e184514f.2e398",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "Stow",
+        "group": "a516f7a8.528348",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Stow Position",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 230,
+        "y": 440,
+        "wires": [
+            [
+                "7b06aca7.c5b924"
+            ]
+        ]
+    },
+    {
+        "id": "1f300358.acab5d",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "From Printer",
+        "links": [
+            "fab9e347.34d9e"
+        ],
+        "x": 395,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "fab9e347.34d9e",
+        "type": "link in",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "1f300358.acab5d"
+        ],
+        "x": 95,
+        "y": 280,
+        "wires": [
+            [
+                "12bed135.b4e95f"
+            ]
+        ]
+    },
+    {
+        "id": "36e6968.ce96a6a",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "25f1430b.aba9dc"
+        ],
+        "x": 595,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "c4f6e240.d1606",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Startup sequence",
+        "func": "if (msg.payload == \"start\") {\n    return [[{payload:\"G28\"},\n             {payload:\"G0 Z100 F3000\"},\n             {payload:\"G0 X110 Y105 F12000\"}]];    \n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "7457c34e.b0c51c"
+            ]
+        ]
+    },
+    {
+        "id": "7457c34e.b0c51c",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "25f1430b.aba9dc"
+        ],
+        "x": 595,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "cb63aceb.5a40e",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "a516f7a8.528348",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Response",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 440,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "31a6b0.4646595",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "a516f7a8.528348",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Command",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 250,
+        "y": 180,
+        "wires": []
+    }
+]
