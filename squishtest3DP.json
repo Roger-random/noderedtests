@@ -151,12 +151,13 @@
         "name": "3D Printer",
         "serial": "2c4bee50.ad8412",
         "x": 240,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "aa50211d.629ba",
                 "1f300358.acab5d",
-                "cb63aceb.5a40e"
+                "cb63aceb.5a40e",
+                "bc0d7ea8.cb428"
             ]
         ]
     },
@@ -173,7 +174,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 60,
+        "y": 40,
         "wires": []
     },
     {
@@ -187,57 +188,19 @@
             "41d4c506.c4183c",
             "36e6968.ce96a6a",
             "7457c34e.b0c51c",
-            "fc27f264.2f45b"
+            "fc27f264.2f45b",
+            "ee2e5210.c74be",
+            "24c352be.1f8a6e"
         ],
         "x": 95,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "65ab7d19.0d5844",
-                "31a6b0.4646595"
+                "31a6b0.4646595",
+                "63afdde1.164314"
             ]
         ]
-    },
-    {
-        "id": "ef028f47.9355c",
-        "type": "inject",
-        "z": "96d8407e.610f7",
-        "name": "Get position",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "M114",
-        "payloadType": "str",
-        "x": 250,
-        "y": 380,
-        "wires": [
-            [
-                "41d4c506.c4183c"
-            ]
-        ]
-    },
-    {
-        "id": "41d4c506.c4183c",
-        "type": "link out",
-        "z": "96d8407e.610f7",
-        "name": "",
-        "links": [
-            "25f1430b.aba9dc"
-        ],
-        "x": 595,
-        "y": 380,
-        "wires": []
     },
     {
         "id": "12bed135.b4e95f",
@@ -250,7 +213,7 @@
         "initialize": "",
         "finalize": "",
         "x": 250,
-        "y": 280,
+        "y": 420,
         "wires": [
             [
                 "c4f6e240.d1606"
@@ -268,7 +231,7 @@
         "initialize": "",
         "finalize": "",
         "x": 430,
-        "y": 440,
+        "y": 520,
         "wires": [
             [
                 "36e6968.ce96a6a"
@@ -294,7 +257,7 @@
         "payloadType": "str",
         "topic": "",
         "x": 240,
-        "y": 320,
+        "y": 460,
         "wires": [
             [
                 "c4f6e240.d1606"
@@ -320,7 +283,7 @@
         "payloadType": "str",
         "topic": "",
         "x": 230,
-        "y": 440,
+        "y": 520,
         "wires": [
             [
                 "7b06aca7.c5b924"
@@ -337,7 +300,7 @@
             "4b5f33e8.19b7ac"
         ],
         "x": 395,
-        "y": 120,
+        "y": 100,
         "wires": []
     },
     {
@@ -349,7 +312,7 @@
             "1f300358.acab5d"
         ],
         "x": 95,
-        "y": 280,
+        "y": 420,
         "wires": [
             [
                 "12bed135.b4e95f"
@@ -365,7 +328,7 @@
             "25f1430b.aba9dc"
         ],
         "x": 595,
-        "y": 440,
+        "y": 520,
         "wires": []
     },
     {
@@ -379,7 +342,7 @@
         "initialize": "",
         "finalize": "",
         "x": 450,
-        "y": 300,
+        "y": 440,
         "wires": [
             [
                 "7457c34e.b0c51c"
@@ -395,7 +358,7 @@
             "25f1430b.aba9dc"
         ],
         "x": 595,
-        "y": 300,
+        "y": 440,
         "wires": []
     },
     {
@@ -411,7 +374,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-right",
         "x": 440,
-        "y": 180,
+        "y": 160,
         "wires": []
     },
     {
@@ -427,7 +390,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "x": 250,
-        "y": 180,
+        "y": 160,
         "wires": []
     },
     {
@@ -448,7 +411,7 @@
         "max": "1",
         "step": "1",
         "x": 260,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "c7635fa5.28d9e"
@@ -468,7 +431,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "x": 680,
-        "y": 600,
+        "y": 620,
         "wires": []
     },
     {
@@ -482,7 +445,7 @@
         "initialize": "// Code added here will be run once\n// whenever the node is deployed.\nflow.set(\"stepSize\", 0.1);",
         "finalize": "",
         "x": 470,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
                 "74d0fe27.f9822"
@@ -508,7 +471,7 @@
         "payloadType": "str",
         "topic": "",
         "x": 240,
-        "y": 660,
+        "y": 680,
         "wires": [
             [
                 "d6640bf1.a75c68"
@@ -534,7 +497,7 @@
         "payloadType": "str",
         "topic": "",
         "x": 250,
-        "y": 700,
+        "y": 720,
         "wires": [
             [
                 "d6640bf1.a75c68"
@@ -542,47 +505,17 @@
         ]
     },
     {
-        "id": "4b5f33e8.19b7ac",
-        "type": "link in",
-        "z": "96d8407e.610f7",
-        "name": "",
-        "links": [
-            "1f300358.acab5d"
-        ],
-        "x": 95,
-        "y": 540,
-        "wires": [
-            [
-                "bc0d7ea8.cb428"
-            ]
-        ]
-    },
-    {
-        "id": "bc0d7ea8.cb428",
-        "type": "function",
-        "z": "96d8407e.610f7",
-        "name": "Update Z",
-        "func": "if (msg.payload !== undefined) {\n    var indexZ = msg.payload.indexOf(\"Z:\");\n    var indexE = msg.payload.indexOf(\"E:\");\n    if (indexZ != -1 && indexE != -1) {\n        var positionZ = parseFloat(msg.payload.substring(indexZ+2, indexE));\n        flow.set(\"positionZ\", positionZ);\n    }\n}",
-        "outputs": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 240,
-        "y": 540,
-        "wires": []
-    },
-    {
         "id": "d6640bf1.a75c68",
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Step Z",
-        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar stepSize = parseFloat(flow.get(\"stepSize\"));\nvar newZ = positionZ;\n\nif (msg.payload==='+') {\n    newZ += stepSize;\n} else if (msg.payload === '-') {\n    newZ -= stepSize;\n}\n\nreturn [[{payload:\"G0 Z\"+newZ.toString()}, \n         {payload:\"M114\"}]];\n",
+        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar stepSize = parseFloat(flow.get(\"stepSize\"));\nvar newZ = positionZ;\n\nif (msg.payload==='+') {\n    newZ += stepSize;\n} else if (msg.payload === '-') {\n    newZ -= stepSize;\n}\n\nreturn {payload:\"G0 Z\"+newZ.toString()};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 430,
-        "y": 680,
+        "y": 700,
         "wires": [
             [
                 "fc27f264.2f45b"
@@ -598,7 +531,109 @@
             "25f1430b.aba9dc"
         ],
         "x": 595,
-        "y": 680,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "afd0581f.e6bb38",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Initialize",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "-1",
+        "payloadType": "num",
+        "x": 100,
+        "y": 620,
+        "wires": [
+            [
+                "ff23564c.dc00e8"
+            ]
+        ]
+    },
+    {
+        "id": "63afdde1.164314",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Request position after every move",
+        "func": "if (typeof msg.payload == \"string\" &&\n    (msg.payload.indexOf(\"G0 \") === 0 ||\n     msg.payload.indexOf(\"G1 \") === 0)) {\n         return {payload:\"M114\"};\n     }\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "24c352be.1f8a6e"
+            ]
+        ]
+    },
+    {
+        "id": "bc0d7ea8.cb428",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Save Z reported by position update",
+        "func": "if (msg.payload !== undefined) {\n    var indexZ = msg.payload.indexOf(\"Z:\");\n    var indexE = msg.payload.indexOf(\"E:\");\n    if (indexZ != -1 && indexE != -1) {\n        var positionZ = parseFloat(msg.payload.substring(indexZ+2, indexE));\n        flow.set(\"positionZ\", positionZ);\n    }\n}",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "63f46856.6fb5c8",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Periodically request position",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "M114",
+        "payloadType": "str",
+        "x": 300,
+        "y": 320,
+        "wires": [
+            [
+                "24c352be.1f8a6e"
+            ]
+        ]
+    },
+    {
+        "id": "24c352be.1f8a6e",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "25f1430b.aba9dc"
+        ],
+        "x": 515,
+        "y": 300,
         "wires": []
     }
 ]
