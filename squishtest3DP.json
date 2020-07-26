@@ -186,7 +186,8 @@
             "87bb3967.65e638",
             "41d4c506.c4183c",
             "36e6968.ce96a6a",
-            "7457c34e.b0c51c"
+            "7457c34e.b0c51c",
+            "fc27f264.2f45b"
         ],
         "x": 95,
         "y": 120,
@@ -261,7 +262,7 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Stow position",
-        "func": "return [[{payload:\"G0 X10 Y10 F12000\"},\n         {payload:\"G0 Z10 F3000\"}]];",
+        "func": "return [[{payload:\"G0 Z100 F3000\"}, // Z+ straight up away from work\n         {payload:\"G0 X10 Y10 F12000\"}, // Stow X and Y\n         {payload:\"G0 Z10 F3000\"}]]; // Stow Z",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -332,7 +333,8 @@
         "z": "96d8407e.610f7",
         "name": "From Printer",
         "links": [
-            "fab9e347.34d9e"
+            "fab9e347.34d9e",
+            "4b5f33e8.19b7ac"
         ],
         "x": 395,
         "y": 120,
@@ -401,7 +403,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 4,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "Response",
@@ -417,7 +419,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 3,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "Command",
@@ -426,6 +428,177 @@
         "layout": "row-left",
         "x": 250,
         "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ff23564c.dc00e8",
+        "type": "ui_slider",
+        "z": "96d8407e.610f7",
+        "name": "Step size slider",
+        "label": "",
+        "tooltip": "",
+        "group": "a516f7a8.528348",
+        "order": 3,
+        "width": "1",
+        "height": "5",
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "-2",
+        "max": "1",
+        "step": "1",
+        "x": 260,
+        "y": 600,
+        "wires": [
+            [
+                "c7635fa5.28d9e"
+            ]
+        ]
+    },
+    {
+        "id": "74d0fe27.f9822",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "a516f7a8.528348",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "Step size output",
+        "label": "Step Size",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 680,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "c7635fa5.28d9e",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Calculate step size",
+        "func": "var stepSize = Math.pow(10,msg.payload); \nflow.set(\"stepSize\", stepSize);\nmsg.payload = stepSize\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is deployed.\nflow.set(\"stepSize\", 0.1);",
+        "finalize": "",
+        "x": 470,
+        "y": 600,
+        "wires": [
+            [
+                "74d0fe27.f9822"
+            ]
+        ]
+    },
+    {
+        "id": "862cfd70.d9459",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "a516f7a8.528348",
+        "order": 4,
+        "width": "5",
+        "height": "2",
+        "passthru": false,
+        "label": "Step Up",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "+",
+        "payloadType": "str",
+        "topic": "",
+        "x": 240,
+        "y": 660,
+        "wires": [
+            [
+                "d6640bf1.a75c68"
+            ]
+        ]
+    },
+    {
+        "id": "ff7c458c.09ae98",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "a516f7a8.528348",
+        "order": 6,
+        "width": "5",
+        "height": "2",
+        "passthru": false,
+        "label": "Step Down",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "-",
+        "payloadType": "str",
+        "topic": "",
+        "x": 250,
+        "y": 700,
+        "wires": [
+            [
+                "d6640bf1.a75c68"
+            ]
+        ]
+    },
+    {
+        "id": "4b5f33e8.19b7ac",
+        "type": "link in",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "1f300358.acab5d"
+        ],
+        "x": 95,
+        "y": 540,
+        "wires": [
+            [
+                "bc0d7ea8.cb428"
+            ]
+        ]
+    },
+    {
+        "id": "bc0d7ea8.cb428",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Update Z",
+        "func": "if (msg.payload !== undefined) {\n    var indexZ = msg.payload.indexOf(\"Z:\");\n    var indexE = msg.payload.indexOf(\"E:\");\n    if (indexZ != -1 && indexE != -1) {\n        var positionZ = parseFloat(msg.payload.substring(indexZ+2, indexE));\n        flow.set(\"positionZ\", positionZ);\n    }\n}",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 240,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d6640bf1.a75c68",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Step Z",
+        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar stepSize = parseFloat(flow.get(\"stepSize\"));\nvar newZ = positionZ;\n\nif (msg.payload==='+') {\n    newZ += stepSize;\n} else if (msg.payload === '-') {\n    newZ -= stepSize;\n}\n\nreturn [[{payload:\"G0 Z\"+newZ.toString()}, \n         {payload:\"M114\"}]];\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 430,
+        "y": 680,
+        "wires": [
+            [
+                "fc27f264.2f45b"
+            ]
+        ]
+    },
+    {
+        "id": "fc27f264.2f45b",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "25f1430b.aba9dc"
+        ],
+        "x": 595,
+        "y": 680,
         "wires": []
     }
 ]
