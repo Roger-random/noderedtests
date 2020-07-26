@@ -366,7 +366,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 8,
+        "order": 10,
         "width": 0,
         "height": 0,
         "name": "Response",
@@ -382,7 +382,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 7,
+        "order": 9,
         "width": 0,
         "height": 0,
         "name": "Command",
@@ -439,7 +439,7 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Calculate step size",
-        "func": "var stepSize = Math.pow(10,msg.payload); \nflow.set(\"stepSize\", stepSize);\nmsg.payload = stepSize\nreturn msg;",
+        "func": "var stepSize = Math.pow(10,msg.payload); \nflow.set(\"stepSize\", stepSize);\nmsg.payload = stepSize.toString() + \"mm\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is deployed.\nflow.set(\"stepSize\", 0.1);",
@@ -460,7 +460,7 @@
         "group": "a516f7a8.528348",
         "order": 4,
         "width": "5",
-        "height": "2",
+        "height": "1",
         "passthru": false,
         "label": "Step Up",
         "tooltip": "",
@@ -484,9 +484,9 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 6,
+        "order": 8,
         "width": "5",
-        "height": "2",
+        "height": "1",
         "passthru": false,
         "label": "Step Down",
         "tooltip": "",
@@ -509,7 +509,7 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Step Z",
-        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar stepSize = parseFloat(flow.get(\"stepSize\"));\nvar newZ = positionZ;\n\nif (msg.payload==='+') {\n    newZ += stepSize;\n} else if (msg.payload === '-') {\n    newZ -= stepSize;\n}\n\nreturn {payload:\"G0 Z\"+newZ.toString()};\n",
+        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar stepSize = parseFloat(flow.get(\"stepSize\"));\nvar feedrate = parseFloat(flow.get(\"feedrate\"));\nvar newZ = positionZ;\n\nif (msg.payload==='+') {\n    newZ += stepSize;\n} else if (msg.payload === '-') {\n    newZ -= stepSize;\n}\n\nreturn {payload:\"G0 Z\"+newZ.toString()+\" F\"+feedrate.toString()};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -634,6 +634,94 @@
         ],
         "x": 515,
         "y": 300,
+        "wires": []
+    },
+    {
+        "id": "59f888bc.57f268",
+        "type": "ui_slider",
+        "z": "96d8407e.610f7",
+        "name": "Speed slider",
+        "label": "",
+        "tooltip": "mm/sec",
+        "group": "a516f7a8.528348",
+        "order": 6,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "1",
+        "max": "50",
+        "step": 1,
+        "x": 250,
+        "y": 820,
+        "wires": [
+            [
+                "98dcdb81.59e1c8"
+            ]
+        ]
+    },
+    {
+        "id": "652a0cf2.1c0714",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Initialize",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "25",
+        "payloadType": "num",
+        "x": 100,
+        "y": 820,
+        "wires": [
+            [
+                "59f888bc.57f268"
+            ]
+        ]
+    },
+    {
+        "id": "98dcdb81.59e1c8",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Calculate Feedrate",
+        "func": "// Slider is in mm/sec, convert to mm/minute\nvar feedrate = msg.payload * 60;\nflow.set(\"feedrate\",feedrate);\n\nmsg.payload = msg.payload.toString() + \" mm/sec\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 470,
+        "y": 820,
+        "wires": [
+            [
+                "258b7e80.6d7a42"
+            ]
+        ]
+    },
+    {
+        "id": "258b7e80.6d7a42",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "a516f7a8.528348",
+        "order": 7,
+        "width": "5",
+        "height": "1",
+        "name": "Feed rate output",
+        "label": "Speed",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "x": 680,
+        "y": 820,
         "wires": []
     }
 ]
