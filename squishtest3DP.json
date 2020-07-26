@@ -682,7 +682,7 @@
         "max": "50",
         "step": 1,
         "x": 250,
-        "y": 820,
+        "y": 780,
         "wires": [
             [
                 "98dcdb81.59e1c8"
@@ -711,7 +711,7 @@
         "payload": "25",
         "payloadType": "num",
         "x": 100,
-        "y": 820,
+        "y": 780,
         "wires": [
             [
                 "59f888bc.57f268"
@@ -729,7 +729,7 @@
         "initialize": "",
         "finalize": "",
         "x": 470,
-        "y": 820,
+        "y": 780,
         "wires": [
             [
                 "258b7e80.6d7a42"
@@ -749,7 +749,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-right",
         "x": 680,
-        "y": 820,
+        "y": 780,
         "wires": []
     },
     {
@@ -896,7 +896,7 @@
         "officon": "",
         "offcolor": "",
         "x": 240,
-        "y": 1040,
+        "y": 980,
         "wires": [
             [
                 "7c413182.78699"
@@ -925,7 +925,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 100,
-        "y": 1040,
+        "y": 980,
         "wires": [
             [
                 "1d08cb16.fbba85"
@@ -943,7 +943,7 @@
         "initialize": "",
         "finalize": "",
         "x": 460,
-        "y": 1040,
+        "y": 980,
         "wires": []
     },
     {
@@ -968,7 +968,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 90,
-        "y": 1100,
+        "y": 1040,
         "wires": [
             [
                 "6fefa74.a5a9558"
@@ -986,7 +986,7 @@
         "initialize": "",
         "finalize": "",
         "x": 240,
-        "y": 1100,
+        "y": 1040,
         "wires": [
             [
                 "50675307.cf167c"
@@ -1002,7 +1002,47 @@
             "25f1430b.aba9dc"
         ],
         "x": 395,
-        "y": 1100,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "3e93c986.759976",
+        "type": "comment",
+        "z": "96d8407e.610f7",
+        "name": "Global printer control",
+        "info": "This section includes the actual serial I/O module to communicate with the printer, alongside several items that are global to printer communication and not specific to any single function.\n\nVirtual wires are used to allow other components to communicate with the printer without having wires criscrossing the entire flow like spaghetti.",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "38840319.147a3c",
+        "type": "comment",
+        "z": "96d8407e.610f7",
+        "name": "Startup and shutdown",
+        "info": "This section handles the startup and shutdown procedures.\n\nUpon startup the printer emits \"start\" and when this is seen, we launch into the homing cycle and move to the standard startup position roughly in the center of addressible space.\n\nThe user can also command the same start up procedure by pressing a button on the UI.\n\nThere's an associated button to put the device into a \"stow\" position close to the homing position. The benefit of doing this is to speed up the homing cycle upon next restart.",
+        "x": 120,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "143fe2bd.b6a71d",
+        "type": "comment",
+        "z": "96d8407e.610f7",
+        "name": "Step size, direction, and speed",
+        "info": "This section has the UI for controlling steps along the Z axis.\nThe vertical slider lets the user specify size of each step\nThe horizontal slider lets the user specify the speed for making that move.\nA button moves +Z with the selected step size at the selected speed, the other button moves -Z.",
+        "x": 150,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "3ead8452.d7b22c",
+        "type": "comment",
+        "z": "96d8407e.610f7",
+        "name": "Auto cycling between two preset positions",
+        "info": "Code to move between two set points at regular intervals.\nSet A and B buttons record the current Z location as well as the speed used to approach that location.\nAn on/off switch toggles automatic cycling.\nEvery timer tick, we check to see if the desired interval has passed and, if so, initiate move to the other position.",
+        "x": 180,
+        "y": 840,
         "wires": []
     }
 ]
