@@ -158,7 +158,7 @@
         "type": "ui_spacer",
         "name": "spacer",
         "group": "a516f7a8.528348",
-        "order": 9,
+        "order": 11,
         "width": "6",
         "height": 1
     },
@@ -167,7 +167,7 @@
         "type": "ui_spacer",
         "name": "spacer",
         "group": "a516f7a8.528348",
-        "order": 16,
+        "order": 18,
         "width": "6",
         "height": 1
     },
@@ -394,7 +394,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 18,
+        "order": 20,
         "width": 0,
         "height": 0,
         "name": "Response",
@@ -410,7 +410,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 17,
+        "order": 19,
         "width": 0,
         "height": 0,
         "name": "Command",
@@ -429,7 +429,7 @@
         "label": "",
         "tooltip": "",
         "group": "a516f7a8.528348",
-        "order": 10,
+        "order": 12,
         "width": 1,
         "height": 5,
         "passthru": true,
@@ -451,12 +451,12 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 12,
+        "order": 14,
         "width": 5,
         "height": 1,
         "name": "Step size output",
         "label": "Step Size",
-        "format": "{{msg.payload}}",
+        "format": "{{msg.payload}}mm",
         "layout": "row-left",
         "x": 680,
         "y": 620,
@@ -467,7 +467,7 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Calculate step size",
-        "func": "var stepSize = Math.pow(10,msg.payload); \nflow.set(\"stepSize\", stepSize);\nmsg.payload = stepSize.toString() + \"mm\";\nreturn msg;",
+        "func": "var stepSize = Math.pow(10,msg.payload); \nflow.set(\"stepSize\", stepSize);\nmsg.payload = stepSize;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is deployed.\nflow.set(\"stepSize\", 0.1);",
@@ -486,7 +486,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 11,
+        "order": 13,
         "width": 5,
         "height": 1,
         "passthru": false,
@@ -512,7 +512,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 15,
+        "order": 17,
         "width": 5,
         "height": 1,
         "passthru": false,
@@ -672,7 +672,7 @@
         "label": "",
         "tooltip": "mm/sec",
         "group": "a516f7a8.528348",
-        "order": 13,
+        "order": 15,
         "width": 5,
         "height": 1,
         "passthru": true,
@@ -723,7 +723,7 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Calculate Feedrate",
-        "func": "// Slider is in mm/sec, convert to mm/minute\nvar feedrate = msg.payload * 60;\nflow.set(\"feedrate\",feedrate);\n\nmsg.payload = msg.payload.toString() + \" mm/sec\";\n\nreturn msg;",
+        "func": "// Slider is in mm/sec, convert to mm/minute\nvar feedrate = msg.payload * 60;\nflow.set(\"feedrate\",feedrate);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -741,12 +741,12 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 14,
+        "order": 16,
         "width": 5,
         "height": 1,
         "name": "Feed rate output",
         "label": "Speed",
-        "format": "{{msg.payload}}",
+        "format": "{{msg.payload}} mm/sec",
         "layout": "row-right",
         "x": 680,
         "y": 780,
@@ -759,7 +759,7 @@
         "name": "",
         "group": "a516f7a8.528348",
         "order": 4,
-        "width": 3,
+        "width": "1",
         "height": 1,
         "passthru": false,
         "label": "Set A",
@@ -783,7 +783,7 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Store A",
-        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar feedrate = parseFloat(flow.get(\"feedrate\"));\nflow.set(\"setA\",{positionZ, feedrate});\n\nvar mmsec = feedrate / 60.0;\n\nreturn {payload:positionZ.toString() + \"mm @\" + mmsec.toString() + \"mm/s\"};",
+        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar feedrate = parseFloat(flow.get(\"feedrate\"));\nvar hold = parseFloat(flow.get(\"hold\"));\n\nflow.set(\"setA\",{positionZ, feedrate, hold});\n\nvar mmsec = feedrate / 60.0;\n\nreturn {payload:positionZ.toString() +\n    \"mm @\" + mmsec.toString() + \n    \"mm/s for \" + hold.toString() + \"s\"};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -802,7 +802,7 @@
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
         "order": 5,
-        "width": 3,
+        "width": "5",
         "height": 1,
         "name": "Show A",
         "label": "A: ",
@@ -819,7 +819,7 @@
         "name": "",
         "group": "a516f7a8.528348",
         "order": 6,
-        "width": 3,
+        "width": "1",
         "height": 1,
         "passthru": false,
         "label": "Set B",
@@ -843,7 +843,7 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Store B",
-        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar feedrate = parseFloat(flow.get(\"feedrate\"));\nflow.set(\"setB\",{positionZ, feedrate});\n\nvar mmsec = feedrate / 60.0;\n\nreturn {payload:positionZ.toString() + \"mm @\" + mmsec.toString() + \"mm/s\"};",
+        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar feedrate = parseFloat(flow.get(\"feedrate\"));\nvar hold = parseFloat(flow.get(\"hold\"));\n\nflow.set(\"setB\",{positionZ, feedrate, hold});\n\nvar mmsec = feedrate / 60.0;\n\nreturn {payload:positionZ.toString() +\n    \"mm @\" + mmsec.toString() + \n    \"mm/s for \" + hold.toString() + \"s\"};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -862,7 +862,7 @@
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
         "order": 7,
-        "width": 3,
+        "width": "5",
         "height": 1,
         "name": "Show B",
         "label": "B: ",
@@ -880,7 +880,7 @@
         "label": "Autocycle",
         "tooltip": "",
         "group": "a516f7a8.528348",
-        "order": 8,
+        "order": 10,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -896,7 +896,7 @@
         "officon": "",
         "offcolor": "",
         "x": 240,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "7c413182.78699"
@@ -925,7 +925,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 100,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "1d08cb16.fbba85"
@@ -943,7 +943,7 @@
         "initialize": "",
         "finalize": "",
         "x": 460,
-        "y": 980,
+        "y": 1040,
         "wires": []
     },
     {
@@ -960,7 +960,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "15",
+        "repeat": "1",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -968,7 +968,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 90,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "6fefa74.a5a9558"
@@ -980,13 +980,13 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Autocycle",
-        "func": "if (flow.get(\"autocycle\")) {\n    var positionZ = flow.get(\"positionZ\");\n    var setA = flow.get(\"setA\");\n    var setB = flow.get(\"setB\");\n    \n    var target;\n\n    if (positionZ != setA.positionZ) {\n        target = setA;\n    } else {\n        target = setB;\n    }\n    \n    return {payload:\"G0 Z\"+target.positionZ.toString()+\" F\"+target.feedrate.toString()};\n}\nreturn null;",
+        "func": "if (flow.get(\"autocycle\")) {\n    var positionZ = flow.get(\"positionZ\");\n    var setA = flow.get(\"setA\");\n    var setB = flow.get(\"setB\");\n    \n    var lastMove = context.get(\"lastMove\");\n    var target = null;\n\n    if (lastMove === undefined) {\n        // First move - go to A.\n        target = setA;\n    } else {\n        if (positionZ != setA.positionZ) {\n            if (Date.now() - lastMove > setB.hold * 1000) {\n                target = setA;\n            }\n        } else {\n            if (Date.now() - lastMove > setA.hold * 1000) {\n                target = setB;\n            }\n        }\n    }\n\n    if (target !== null) {\n        context.set(\"lastMove\", Date.now());\n        return {payload:\"G0 Z\"+target.positionZ.toString()+\" F\"+target.feedrate.toString()};\n    }\n}\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 240,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "50675307.cf167c"
@@ -1002,7 +1002,7 @@
             "25f1430b.aba9dc"
         ],
         "x": 395,
-        "y": 1040,
+        "y": 1100,
         "wires": []
     },
     {
@@ -1042,7 +1042,95 @@
         "name": "Auto cycling between two preset positions",
         "info": "Code to move between two set points at regular intervals.\nSet A and B buttons record the current Z location as well as the speed used to approach that location.\nAn on/off switch toggles automatic cycling.\nEvery timer tick, we check to see if the desired interval has passed and, if so, initiate move to the other position.",
         "x": 180,
-        "y": 840,
+        "y": 860,
         "wires": []
+    },
+    {
+        "id": "577d9aa9.1f9824",
+        "type": "ui_slider",
+        "z": "96d8407e.610f7",
+        "name": "Hold time",
+        "label": "Hold",
+        "tooltip": "seconds",
+        "group": "a516f7a8.528348",
+        "order": 8,
+        "width": "5",
+        "height": "1",
+        "passthru": true,
+        "outs": "all",
+        "topic": "",
+        "min": "1",
+        "max": "30",
+        "step": 1,
+        "x": 240,
+        "y": 980,
+        "wires": [
+            [
+                "ca1ba8b1.a10a88"
+            ]
+        ]
+    },
+    {
+        "id": "ca1ba8b1.a10a88",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Store hold",
+        "func": "flow.set(\"hold\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 450,
+        "y": 980,
+        "wires": [
+            [
+                "d56b72f7.e586e"
+            ]
+        ]
+    },
+    {
+        "id": "d56b72f7.e586e",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "a516f7a8.528348",
+        "order": 9,
+        "width": "1",
+        "height": "1",
+        "name": "Show hold",
+        "label": "",
+        "format": "{{msg.payload}}s",
+        "layout": "row-spread",
+        "x": 670,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "96bba12c.8c0e1",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Initialize",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 100,
+        "y": 980,
+        "wires": [
+            [
+                "577d9aa9.1f9824"
+            ]
+        ]
     }
 ]
