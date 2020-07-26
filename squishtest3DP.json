@@ -128,7 +128,7 @@
         "id": "cb9c6f66.54e12",
         "type": "ui_tab",
         "z": "",
-        "name": "Coordinate Control",
+        "name": "Squish test",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
@@ -137,12 +137,39 @@
         "id": "a516f7a8.528348",
         "type": "ui_group",
         "z": "",
-        "name": "Machine State",
+        "name": "Movement",
         "tab": "cb9c6f66.54e12",
         "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false
+    },
+    {
+        "id": "bcee7155.e612c",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "a516f7a8.528348",
+        "order": 3,
+        "width": "6",
+        "height": 1
+    },
+    {
+        "id": "fc1759b8.e41de8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "a516f7a8.528348",
+        "order": 9,
+        "width": "6",
+        "height": 1
+    },
+    {
+        "id": "8d4ea7f1.550908",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "a516f7a8.528348",
+        "order": 16,
+        "width": "6",
+        "height": 1
     },
     {
         "id": "65ab7d19.0d5844",
@@ -174,7 +201,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 40,
+        "y": 60,
         "wires": []
     },
     {
@@ -190,7 +217,8 @@
             "7457c34e.b0c51c",
             "fc27f264.2f45b",
             "ee2e5210.c74be",
-            "24c352be.1f8a6e"
+            "24c352be.1f8a6e",
+            "50675307.cf167c"
         ],
         "x": 95,
         "y": 100,
@@ -245,8 +273,8 @@
         "name": "Startup",
         "group": "a516f7a8.528348",
         "order": 1,
-        "width": "3",
-        "height": "1",
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Startup Sequence",
         "tooltip": "",
@@ -271,8 +299,8 @@
         "name": "Stow",
         "group": "a516f7a8.528348",
         "order": 2,
-        "width": "3",
-        "height": "1",
+        "width": 3,
+        "height": 1,
         "passthru": false,
         "label": "Stow Position",
         "tooltip": "",
@@ -366,7 +394,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 10,
+        "order": 18,
         "width": 0,
         "height": 0,
         "name": "Response",
@@ -382,7 +410,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 9,
+        "order": 17,
         "width": 0,
         "height": 0,
         "name": "Command",
@@ -401,9 +429,9 @@
         "label": "",
         "tooltip": "",
         "group": "a516f7a8.528348",
-        "order": 3,
-        "width": "1",
-        "height": "5",
+        "order": 10,
+        "width": 1,
+        "height": 5,
         "passthru": true,
         "outs": "all",
         "topic": "",
@@ -423,9 +451,9 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 5,
-        "width": "5",
-        "height": "1",
+        "order": 12,
+        "width": 5,
+        "height": 1,
         "name": "Step size output",
         "label": "Step Size",
         "format": "{{msg.payload}}",
@@ -458,9 +486,9 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 4,
-        "width": "5",
-        "height": "1",
+        "order": 11,
+        "width": 5,
+        "height": 1,
         "passthru": false,
         "label": "Step Up",
         "tooltip": "",
@@ -484,9 +512,9 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 8,
-        "width": "5",
-        "height": "1",
+        "order": 15,
+        "width": 5,
+        "height": 1,
         "passthru": false,
         "label": "Step Down",
         "tooltip": "",
@@ -644,9 +672,9 @@
         "label": "",
         "tooltip": "mm/sec",
         "group": "a516f7a8.528348",
-        "order": 6,
-        "width": "5",
-        "height": "1",
+        "order": 13,
+        "width": 5,
+        "height": 1,
         "passthru": true,
         "outs": "all",
         "topic": "",
@@ -713,15 +741,268 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 7,
-        "width": "5",
-        "height": "1",
+        "order": 14,
+        "width": 5,
+        "height": 1,
         "name": "Feed rate output",
         "label": "Speed",
         "format": "{{msg.payload}}",
         "layout": "row-right",
         "x": 680,
         "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b61a1f4e.f9dd1",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "a516f7a8.528348",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Set A",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 230,
+        "y": 900,
+        "wires": [
+            [
+                "31b93ab7.7ee7d6"
+            ]
+        ]
+    },
+    {
+        "id": "31b93ab7.7ee7d6",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Store A",
+        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar feedrate = parseFloat(flow.get(\"feedrate\"));\nflow.set(\"setA\",{positionZ, feedrate});\n\nvar mmsec = feedrate / 60.0;\n\nreturn {payload:positionZ.toString() + \"mm @\" + mmsec.toString() + \"mm/s\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 440,
+        "y": 900,
+        "wires": [
+            [
+                "9d55e534.21ab78"
+            ]
+        ]
+    },
+    {
+        "id": "9d55e534.21ab78",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "a516f7a8.528348",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "name": "Show A",
+        "label": "A: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 660,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "822918bd.4f38b8",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "a516f7a8.528348",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Set B",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 230,
+        "y": 940,
+        "wires": [
+            [
+                "6bd80203.3c056c"
+            ]
+        ]
+    },
+    {
+        "id": "6bd80203.3c056c",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Store B",
+        "func": "var positionZ = parseFloat(flow.get(\"positionZ\"));\nvar feedrate = parseFloat(flow.get(\"feedrate\"));\nflow.set(\"setB\",{positionZ, feedrate});\n\nvar mmsec = feedrate / 60.0;\n\nreturn {payload:positionZ.toString() + \"mm @\" + mmsec.toString() + \"mm/s\"};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 440,
+        "y": 940,
+        "wires": [
+            [
+                "49bbe741.4b5648"
+            ]
+        ]
+    },
+    {
+        "id": "49bbe741.4b5648",
+        "type": "ui_text",
+        "z": "96d8407e.610f7",
+        "group": "a516f7a8.528348",
+        "order": 7,
+        "width": 3,
+        "height": 1,
+        "name": "Show B",
+        "label": "B: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 660,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "1d08cb16.fbba85",
+        "type": "ui_switch",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "label": "Autocycle",
+        "tooltip": "",
+        "group": "a516f7a8.528348",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 240,
+        "y": 1040,
+        "wires": [
+            [
+                "7c413182.78699"
+            ]
+        ]
+    },
+    {
+        "id": "ff7154d6.634738",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Initialize",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 100,
+        "y": 1040,
+        "wires": [
+            [
+                "1d08cb16.fbba85"
+            ]
+        ]
+    },
+    {
+        "id": "7c413182.78699",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Autocycle state",
+        "func": "flow.set(\"autocycle\", msg.payload);",
+        "outputs": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "68237b74.44af34",
+        "type": "inject",
+        "z": "96d8407e.610f7",
+        "name": "Cycle",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1100,
+        "wires": [
+            [
+                "6fefa74.a5a9558"
+            ]
+        ]
+    },
+    {
+        "id": "6fefa74.a5a9558",
+        "type": "function",
+        "z": "96d8407e.610f7",
+        "name": "Autocycle",
+        "func": "if (flow.get(\"autocycle\")) {\n    var positionZ = flow.get(\"positionZ\");\n    var setA = flow.get(\"setA\");\n    var setB = flow.get(\"setB\");\n    \n    var target;\n\n    if (positionZ != setA.positionZ) {\n        target = setA;\n    } else {\n        target = setB;\n    }\n    \n    return {payload:\"G0 Z\"+target.positionZ.toString()+\" F\"+target.feedrate.toString()};\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 240,
+        "y": 1100,
+        "wires": [
+            [
+                "50675307.cf167c"
+            ]
+        ]
+    },
+    {
+        "id": "50675307.cf167c",
+        "type": "link out",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "links": [
+            "25f1430b.aba9dc"
+        ],
+        "x": 395,
+        "y": 1100,
         "wires": []
     }
 ]
