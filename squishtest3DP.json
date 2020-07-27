@@ -2,7 +2,14 @@
     {
         "id": "96d8407e.610f7",
         "type": "tab",
-        "label": "3D Printer Test",
+        "label": "Z axis",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ea4c2861.9f2658",
+        "type": "tab",
+        "label": "Load cell",
         "disabled": false,
         "info": ""
     },
@@ -149,7 +156,7 @@
         "type": "ui_spacer",
         "name": "spacer",
         "group": "a516f7a8.528348",
-        "order": 3,
+        "order": 4,
         "width": "6",
         "height": 1
     },
@@ -158,7 +165,7 @@
         "type": "ui_spacer",
         "name": "spacer",
         "group": "a516f7a8.528348",
-        "order": 11,
+        "order": 12,
         "width": "6",
         "height": 1
     },
@@ -167,9 +174,40 @@
         "type": "ui_spacer",
         "name": "spacer",
         "group": "a516f7a8.528348",
-        "order": 18,
+        "order": 19,
         "width": "6",
         "height": 1
+    },
+    {
+        "id": "b441edb7.9f6b4",
+        "type": "ui_group",
+        "z": "",
+        "name": "Load Cell",
+        "tab": "cb9c6f66.54e12",
+        "order": 2,
+        "disp": true,
+        "width": "18",
+        "collapse": false
+    },
+    {
+        "id": "15af2513.f48cdb",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM7",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
     },
     {
         "id": "65ab7d19.0d5844",
@@ -253,16 +291,16 @@
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Stow position",
-        "func": "return [[{payload:\"G0 Z100 F3000\"}, // Z+ straight up away from work\n         {payload:\"G0 X10 Y10 F12000\"}, // Stow X and Y\n         {payload:\"G0 Z10 F3000\"}]]; // Stow Z",
+        "func": "return [[{payload:\"G0 Z260 F3000\"}, // Z+ straight up away from work\n         {payload:\"G0 X10 Y10 F12000\"}, // Stow X and Y\n         {payload:\"G0 Z10 F3000\"}]]; // Stow Z",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 430,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
-                "36e6968.ce96a6a"
+                "7457c34e.b0c51c"
             ]
         ]
     },
@@ -273,10 +311,10 @@
         "name": "Startup",
         "group": "a516f7a8.528348",
         "order": 1,
-        "width": 3,
+        "width": "2",
         "height": 1,
         "passthru": false,
-        "label": "Startup Sequence",
+        "label": "Start",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -298,11 +336,11 @@
         "z": "96d8407e.610f7",
         "name": "Stow",
         "group": "a516f7a8.528348",
-        "order": 2,
-        "width": 3,
+        "order": 3,
+        "width": "2",
         "height": 1,
         "passthru": false,
-        "label": "Stow Position",
+        "label": "Stow",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -311,7 +349,7 @@
         "payloadType": "str",
         "topic": "",
         "x": 230,
-        "y": 520,
+        "y": 540,
         "wires": [
             [
                 "7b06aca7.c5b924"
@@ -348,23 +386,11 @@
         ]
     },
     {
-        "id": "36e6968.ce96a6a",
-        "type": "link out",
-        "z": "96d8407e.610f7",
-        "name": "",
-        "links": [
-            "25f1430b.aba9dc"
-        ],
-        "x": 595,
-        "y": 520,
-        "wires": []
-    },
-    {
         "id": "c4f6e240.d1606",
         "type": "function",
         "z": "96d8407e.610f7",
         "name": "Startup sequence",
-        "func": "if (msg.payload == \"start\") {\n    return [[{payload:\"G28\"},\n             {payload:\"G0 Z100 F3000\"},\n             {payload:\"G0 X110 Y105 F12000\"}]];    \n}\nreturn null;",
+        "func": "if (msg.payload == \"start\") {\n    return [[{payload:\"G28\"},\n             {payload:\"G0 Z130 F3000\"},\n             {payload:\"G0 X120 Y105 F12000\"}]];    \n}\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -385,8 +411,8 @@
         "links": [
             "25f1430b.aba9dc"
         ],
-        "x": 595,
-        "y": 440,
+        "x": 615,
+        "y": 480,
         "wires": []
     },
     {
@@ -394,7 +420,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 20,
+        "order": 21,
         "width": 0,
         "height": 0,
         "name": "Response",
@@ -410,7 +436,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 19,
+        "order": 20,
         "width": 0,
         "height": 0,
         "name": "Command",
@@ -429,7 +455,7 @@
         "label": "",
         "tooltip": "",
         "group": "a516f7a8.528348",
-        "order": 12,
+        "order": 13,
         "width": 1,
         "height": 5,
         "passthru": true,
@@ -451,7 +477,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 14,
+        "order": 15,
         "width": 5,
         "height": 1,
         "name": "Step size output",
@@ -486,7 +512,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 13,
+        "order": 14,
         "width": 5,
         "height": 1,
         "passthru": false,
@@ -512,7 +538,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 17,
+        "order": 18,
         "width": 5,
         "height": 1,
         "passthru": false,
@@ -672,7 +698,7 @@
         "label": "",
         "tooltip": "mm/sec",
         "group": "a516f7a8.528348",
-        "order": 15,
+        "order": 16,
         "width": 5,
         "height": 1,
         "passthru": true,
@@ -741,7 +767,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 16,
+        "order": 17,
         "width": 5,
         "height": 1,
         "name": "Feed rate output",
@@ -758,7 +784,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 4,
+        "order": 5,
         "width": "1",
         "height": 1,
         "passthru": false,
@@ -801,11 +827,11 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 5,
+        "order": 6,
         "width": "5",
         "height": 1,
         "name": "Show A",
-        "label": "A: ",
+        "label": "",
         "format": "{{msg.payload}}",
         "layout": "row-center",
         "x": 660,
@@ -818,7 +844,7 @@
         "z": "96d8407e.610f7",
         "name": "",
         "group": "a516f7a8.528348",
-        "order": 6,
+        "order": 7,
         "width": "1",
         "height": 1,
         "passthru": false,
@@ -861,11 +887,11 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 7,
+        "order": 8,
         "width": "5",
         "height": 1,
         "name": "Show B",
-        "label": "B: ",
+        "label": "",
         "format": "{{msg.payload}}",
         "layout": "row-center",
         "x": 660,
@@ -880,7 +906,7 @@
         "label": "Autocycle",
         "tooltip": "",
         "group": "a516f7a8.528348",
-        "order": 10,
+        "order": 11,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -1040,7 +1066,7 @@
         "type": "comment",
         "z": "96d8407e.610f7",
         "name": "Auto cycling between two preset positions",
-        "info": "Code to move between two set points at regular intervals.\nSet A and B buttons record the current Z location as well as the speed used to approach that location.\nAn on/off switch toggles automatic cycling.\nEvery timer tick, we check to see if the desired interval has passed and, if so, initiate move to the other position.",
+        "info": "Code to move between two set points at regular intervals.\nSet A and B buttons record the current Z location as well as the speed used to approach that location.\nAn on/off switch toggles automatic cycling.\nEvery second we check to see if the desired interval has passed and, if so, initiate move to the other position.",
         "x": 180,
         "y": 860,
         "wires": []
@@ -1053,7 +1079,7 @@
         "label": "Hold",
         "tooltip": "seconds",
         "group": "a516f7a8.528348",
-        "order": 8,
+        "order": 9,
         "width": "5",
         "height": "1",
         "passthru": true,
@@ -1093,7 +1119,7 @@
         "type": "ui_text",
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
-        "order": 9,
+        "order": 10,
         "width": "1",
         "height": "1",
         "name": "Show hold",
@@ -1130,6 +1156,131 @@
         "wires": [
             [
                 "577d9aa9.1f9824"
+            ]
+        ]
+    },
+    {
+        "id": "61c1897d.d85068",
+        "type": "serial in",
+        "z": "ea4c2861.9f2658",
+        "name": "Load Cell 2",
+        "serial": "15af2513.f48cdb",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "117170f5.24da8f"
+            ]
+        ]
+    },
+    {
+        "id": "5a62791b.3c3578",
+        "type": "ui_chart",
+        "z": "ea4c2861.9f2658",
+        "name": "Load cell chart",
+        "group": "b441edb7.9f6b4",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "117170f5.24da8f",
+        "type": "function",
+        "z": "ea4c2861.9f2658",
+        "name": "Process raw message",
+        "func": "if (msg.payload.indexOf(\"HX711 not found.\") === 0) {\n    node.status({fill:\"red\", shape:\"ring\", text:\"HX711 absent\"});\n    return null;\n}\n\nvar raw = parseFloat(msg.payload);\nmsg.payload = raw;\nif (raw > -420000 || raw < -700000) {\n    // Discard values well outside observed normal range\n    node.status({fill:\"yellow\", shape:\"ring\", text:\"Rejected data\"});\n    return [null, msg];\n} else {\n    node.status({fill:\"green\", shape:\"dot\", text:\"Receiving data\"});\n    return [msg, null];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "5a62791b.3c3578"
+            ],
+            [
+                "3dad5cf3.4a8c54"
+            ]
+        ],
+        "outputLabels": [
+            "data",
+            "rejected"
+        ]
+    },
+    {
+        "id": "3dad5cf3.4a8c54",
+        "type": "debug",
+        "z": "ea4c2861.9f2658",
+        "name": "Rejected",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "80ebbd40.b5d04",
+        "type": "ui_button",
+        "z": "96d8407e.610f7",
+        "name": "",
+        "group": "a516f7a8.528348",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "label": "Clear",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "G0 Z260 F3000",
+        "payloadType": "str",
+        "topic": "",
+        "x": 230,
+        "y": 500,
+        "wires": [
+            [
+                "7457c34e.b0c51c"
             ]
         ]
     }
