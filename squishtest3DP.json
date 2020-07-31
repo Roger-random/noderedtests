@@ -14,6 +14,13 @@
         "info": ""
     },
     {
+        "id": "e9560dcf.9777c",
+        "type": "tab",
+        "label": "Indicator",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "a273c16d.a6548",
         "type": "ui_base",
         "theme": {
@@ -152,33 +159,6 @@
         "collapse": false
     },
     {
-        "id": "bcee7155.e612c",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "a516f7a8.528348",
-        "order": 4,
-        "width": "6",
-        "height": 1
-    },
-    {
-        "id": "fc1759b8.e41de8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "a516f7a8.528348",
-        "order": 12,
-        "width": "6",
-        "height": 1
-    },
-    {
-        "id": "8d4ea7f1.550908",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "a516f7a8.528348",
-        "order": 19,
-        "width": "6",
-        "height": 1
-    },
-    {
         "id": "b441edb7.9f6b4",
         "type": "ui_group",
         "z": "",
@@ -208,6 +188,64 @@
         "out": "char",
         "addchar": "",
         "responsetimeout": "10000"
+    },
+    {
+        "id": "bce2382.dc8b5c8",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "COM8",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "1000"
+    },
+    {
+        "id": "57c51ec8.823af",
+        "type": "ui_group",
+        "z": "",
+        "name": "Indicator",
+        "tab": "cb9c6f66.54e12",
+        "order": 3,
+        "disp": true,
+        "width": "18",
+        "collapse": false
+    },
+    {
+        "id": "ff5f131f.6e8f3",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "a516f7a8.528348",
+        "order": 4,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "9d68e6ce.7f9708",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "a516f7a8.528348",
+        "order": 12,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "afe5eb9b.f478f8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "a516f7a8.528348",
+        "order": 19,
+        "width": 6,
+        "height": 1
     },
     {
         "id": "65ab7d19.0d5844",
@@ -311,7 +349,7 @@
         "name": "Startup",
         "group": "a516f7a8.528348",
         "order": 1,
-        "width": "2",
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "Start",
@@ -337,7 +375,7 @@
         "name": "Stow",
         "group": "a516f7a8.528348",
         "order": 3,
-        "width": "2",
+        "width": 2,
         "height": 1,
         "passthru": false,
         "label": "Stow",
@@ -785,7 +823,7 @@
         "name": "",
         "group": "a516f7a8.528348",
         "order": 5,
-        "width": "1",
+        "width": 1,
         "height": 1,
         "passthru": false,
         "label": "Set A",
@@ -828,7 +866,7 @@
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
         "order": 6,
-        "width": "5",
+        "width": 5,
         "height": 1,
         "name": "Show A",
         "label": "",
@@ -845,7 +883,7 @@
         "name": "",
         "group": "a516f7a8.528348",
         "order": 7,
-        "width": "1",
+        "width": 1,
         "height": 1,
         "passthru": false,
         "label": "Set B",
@@ -888,7 +926,7 @@
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
         "order": 8,
-        "width": "5",
+        "width": 5,
         "height": 1,
         "name": "Show B",
         "label": "",
@@ -1080,8 +1118,8 @@
         "tooltip": "seconds",
         "group": "a516f7a8.528348",
         "order": 9,
-        "width": "5",
-        "height": "1",
+        "width": 5,
+        "height": 1,
         "passthru": true,
         "outs": "all",
         "topic": "",
@@ -1120,8 +1158,8 @@
         "z": "96d8407e.610f7",
         "group": "a516f7a8.528348",
         "order": 10,
-        "width": "1",
-        "height": "1",
+        "width": 1,
+        "height": 1,
         "name": "Show hold",
         "label": "",
         "format": "{{msg.payload}}s",
@@ -1179,9 +1217,9 @@
         "z": "ea4c2861.9f2658",
         "name": "Load cell chart",
         "group": "b441edb7.9f6b4",
-        "order": 20,
-        "width": 0,
-        "height": 0,
+        "order": 1,
+        "width": 18,
+        "height": "5",
         "label": "",
         "chartType": "line",
         "legend": "false",
@@ -1265,8 +1303,8 @@
         "name": "",
         "group": "a516f7a8.528348",
         "order": 2,
-        "width": "2",
-        "height": "1",
+        "width": 2,
+        "height": 1,
         "passthru": false,
         "label": "Clear",
         "tooltip": "",
@@ -1283,5 +1321,103 @@
                 "7457c34e.b0c51c"
             ]
         ]
+    },
+    {
+        "id": "7431109d.260da",
+        "type": "serial in",
+        "z": "e9560dcf.9777c",
+        "name": "Mitutoyo Indicator",
+        "serial": "bce2382.dc8b5c8",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "82264c7c.d6c29"
+            ]
+        ]
+    },
+    {
+        "id": "82264c7c.d6c29",
+        "type": "function",
+        "z": "e9560dcf.9777c",
+        "name": "Parse hex output",
+        "func": "var strHex = msg.payload;\nvar reading = 0;\nvar unit = \"?\";\n\n// Verify payload type\nif (typeof(strHex) != \"string\") {\n    node.status({fill:\"red\", shape:\"ring\", text:\"Nonstring input\"});\n    return null;\n}\n\n// Verify header\nif (strHex.substring(0,4) != \"FFFF\") {\n    node.status({fill:\"red\", shape:\"ring\", text:\"Bad header\"});\n    return null;\n}\n\n// Read digits\nreading = parseInt(strHex.substring(5,11));\nif (isNaN(reading)) {\n    node.status({fill:\"red\", shape:\"ring\", text:\"Bad digits\"});\n    return null;\n}\n\n// Read sign\nif (strHex[4] === '8') {\n    reading *= -1;\n} else if (strHex[4] != '0') {\n    node.status({fill:\"red\", shape:\"ring\", text:\"Invalid sign\"});\n    return null;\n}\n\n// Move decimal point\nreading /= Math.pow(10, parseInt(strHex[11]));\n\n// Extract units\nif (strHex[12] === '0') {\n    unit = \"mm\";\n} else if (strHex[12] === '1') {\n    unit = \"in\";\n} else {\n    node.status({fill:\"red\", shape:\"ring\", text:\"Invalid units\"});\n    return null;\n}\n\nnode.status({fill:\"green\", shape:\"dot\", text:\"Data OK\"});\n\nmsg = [{payload:reading}, {payload:unit}];\n\nreturn msg;",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "f8112605.1523c8"
+            ],
+            [
+                "c8d21d89.50667"
+            ]
+        ],
+        "outputLabels": [
+            "reading",
+            "unit"
+        ]
+    },
+    {
+        "id": "f8112605.1523c8",
+        "type": "ui_chart",
+        "z": "e9560dcf.9777c",
+        "name": "Indicator chart",
+        "group": "57c51ec8.823af",
+        "order": 1,
+        "width": 18,
+        "height": "5",
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8d21d89.50667",
+        "type": "ui_text",
+        "z": "e9560dcf.9777c",
+        "group": "57c51ec8.823af",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Indicator unit",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 550,
+        "y": 80,
+        "wires": []
     }
 ]
